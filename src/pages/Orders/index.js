@@ -4,7 +4,8 @@ import './index.css';
 
 const Orders = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
+    const currentPage = 1
     const ITEMS_PER_PAGE = 15;
 
     const filteredData = data.filter((item) =>
