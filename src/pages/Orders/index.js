@@ -26,37 +26,39 @@ const Orders = () => {
     return (
         <div className="OrdersPage">
             <h1>Orders Page</h1>
-            <input
-                type="text"
-                placeholder="Search..."
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-            />
-            <table>
-                <thead>
-                <tr>
-                    <th>Order Id</th>
-                    <th>Vendor name</th>
-                    <th>Pick up date</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                {getCurrentItems().map((item) => (
-                    <tr key={item.orderId}>
-                    <td>{item.orderId}</td>
-                    <td>{item.vendorName}</td>
-                    <td>{item.pickupDate}</td>
-                    <td>{item.status}</td>
+            <div className="order-container">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                />
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Vendor name</th>
+                        <th>Pick up date</th>
+                        <th>Status</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
-            {/* <Pagination
-                currentPage={currentPage}
-                pageCount={getPageCount()}
-                onPageChange={handlePageChange}
-            /> */}
+                    </thead>
+                    <tbody>
+                    {getCurrentItems().map((item) => (
+                        <tr key={item.orderId}>
+                        <td>{item.orderId}</td>
+                        <td>{item.vendorName}</td>
+                        <td>{item.pickupDate}</td>
+                        <td>{item.status}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+                {/* <Pagination
+                    currentPage={currentPage}
+                    pageCount={getPageCount()}
+                    onPageChange={handlePageChange}
+                /> */}
+            </div>
         </div>
     );
 }
