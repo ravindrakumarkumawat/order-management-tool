@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/authentication/authContextProvider'
+import Layout from './component/layout';
 const Login = lazy(() => import('./pages/Login'));
 const Orders = lazy(() => import( './pages/Orders'));
 const ProtectedRoute = lazy(() => import('./ProtectedRoute/ProtectedRoute'))
@@ -9,14 +10,14 @@ function App() {
     <div className="App">
       <Router>
         <AuthContextProvider>
-          <header className="App-header"> 
-          </header>
-          <Suspense fallback={<div className='ErrorMessage'>Loading...</div>}>
-            <Switch>
-              <ProtectedRoute path="/orders" component={Orders} />
-              <Route exact path="/" component={Login} />
-            </Switch>
-          </Suspense>
+          <Layout>
+            <Suspense fallback={<div className='ErrorMessage'>Loading...</div>}>
+              <Switch>
+                <ProtectedRoute path="/orders" component={Orders} />
+                <Route exact path="/" component={Login} />
+              </Switch>
+            </Suspense>
+          </Layout>
         </AuthContextProvider>
       </Router>
     </div>

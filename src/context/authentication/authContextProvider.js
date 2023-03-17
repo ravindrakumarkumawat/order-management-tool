@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useReducer, useMemo } from 'react'
+import React, { createContext, useReducer } from 'react'
 import { SIGN_IN_USER, SIGN_OUT_USER } from './authTypes'
 import { reducer } from './authReducer'
 import { useHistory } from 'react-router-dom';

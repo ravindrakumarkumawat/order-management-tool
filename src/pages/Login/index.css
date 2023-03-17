@@ -1,5 +1,6 @@
 .container {
     max-width: 400px;
+    width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -57,5 +58,9 @@ label {
       max-width: 100%;
       padding: 10px;
     }
+  }
+
+  .background {
+    background: linear-gradient( to right, #0071c5, #00db3e );
   }
   

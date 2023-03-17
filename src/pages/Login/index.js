@@ -63,32 +63,34 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div>{emailError && <span className="error-message">{emailError}</span>}</div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div>{passwordError && <span className="error-message">{passwordError}</span>}</div>
-        <button type="submit">
-          Login
-        </button>
-      </form>
+    <div className="background vw-100 vh-100 k-flex k-jcc k-aic">
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </div>
+          <div>{emailError && <span className="error-message">{emailError}</span>}</div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div>{passwordError && <span className="error-message">{passwordError}</span>}</div>
+          <button type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
