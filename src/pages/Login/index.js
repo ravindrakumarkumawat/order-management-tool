@@ -5,8 +5,8 @@ import './index.css';
 
 const Login = () => {
   const { login } = useContext(AuthContext)
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('ravindra@gmail.com');
+  const [password, setPassword] = useState('123456');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
