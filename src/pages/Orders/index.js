@@ -17,12 +17,12 @@ const Orders = () => {
         const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
         return filteredData.slice(indexOfFirstItem, indexOfLastItem);
     };
-    const getPageCount = () => {
-        return Math.ceil(filteredData.length / ITEMS_PER_PAGE);
-    };
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
+    // const getPageCount = () => {
+    //     return Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+    // };
+    // const handlePageChange = (pageNumber) => {
+    //     setCurrentPage(pageNumber);
+    // };
     return (
         <div className="OrdersPage">
             <h1>Orders Page</h1>

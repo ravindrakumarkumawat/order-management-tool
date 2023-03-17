@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/authentication/authContextProvider';
 import { isValidEmail, isValidPassword, isValidUserName } from '../../utils/validations';
 import './index.css';
