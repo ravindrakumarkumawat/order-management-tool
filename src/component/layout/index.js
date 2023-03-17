@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/authentication/authContextProvider";
-import Footer from "../common/Footer";
 import Header from "../common/Header";
 import Sidebar from "../common/Sidebar";
 
@@ -11,12 +10,11 @@ const Layout = ({ children }) => {
         {isSignedIn && <div className="parent">
             <div className="main">
                 <Sidebar />
-                <article className="content child">
+                <article className="content k-pl16 k-pr16">
                     <Header />
                     {children}
                 </article>
             </div>
-            <Footer />
         </div>
         }
         {

@@ -12,5 +12,31 @@
   }
 .sidebar {
   background: var(--theme-background__white);
+  width: 20%;
+  padding-left: 16px;
+  box-shadow: -7px 0 7px -7px rgba(0,0,0,0.7);
 }
+.sidebar__nav-item--name {
+  display: inline-flex;
+  padding-left: 16px;
+}
+@media screen and (max-width: 360px) {
+  .sidebar {
+    width: 5%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sidebar {
+    width: 2.8%;
+    padding-right: 16px;
+    /* border-right: 1px solid green; */
+  }
+  .sidebar__nav-item--name {
+    display: none;
+  }
+}
+
+
+
+
   

@@ -1,5 +1,5 @@
 :root {
-  --theme-font-color__primary: #CDD2D5;
+  --theme-font-color__primary: #445965;
   --theme-background: #F5F5F5;
   --theme-background__white: #FFFFFF;
 }
@@ -22,6 +22,14 @@ code {
   display: flex;
 }
 
+.k-fdc {
+  flex-direction: column;
+}
+
+.k-fdr {
+  flex-direction: row;
+}
+
 .k-jcc {
   justify-content: center;
 }
@@ -34,10 +42,50 @@ code {
   align-items: center;
 }
 
+
+.h-100 {
+  height: 100%;
+}
+
 .vh-100 {
   height: 100vh;
 }
 
 .vw-100 {
   width: 100vw;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.k-pl16 {
+  padding-left: 16px;
+}
+
+.k-pr16 {
+  padding-right: 16px;
+}
+
+.k-pt16 {
+  padding-top: 16px;
+}
+
+.k-pb16 {
+  padding-bottom: 16px;
+}
+.k-pl4 {
+  padding-left: 4px;
+}
+
+.k-pr4 {
+  padding-right: 4px;
+}
+
+.k-pt4 {
+  padding-top: 4px;
+}
+
+.k-pb4 {
+  padding-bottom: 4px;
 }
