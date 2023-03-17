@@ -1,20 +1,15 @@
 import React from 'react'
-import './index.css'
+import {AiOutlineAlignRight} from "react-icons/ai";
+
 const Header = () => {
   return (
-    <header className="main-head background">
-        OTM
-        <div className="menu-icon">
-            =
+    <header className="child k-flex k-jcsb">
+        <div class="logo">
+          OTM
         </div>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Services</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
+        <div className="menu-icon">
+          <AiOutlineAlignRight />
+        </div>
     </header>
   )
 }

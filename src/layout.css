@@ -1,31 +1,19 @@
-.main-head {
-    grid-area: header;
-  }
-  .content {
-    grid-area: content;
-  }
-  .side {
-    grid-area: sidebar;
-  }
-  .main-footer {
-    grid-area: footer;
-  }
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-  .l-wrapper {
-    display: grid;
-    grid-template-areas:
-      "header"
-      "sidebar"
-      "content"
-      "footer";
-  }
+.main {
+  display: flex;
+  flex-grow: 1;
+}
 
-  @media (min-width: 500px) {
-    .l-wrapper {
-      grid-template-columns: 1fr 3fr;
-      grid-template-areas:
-        "header header"
-        "sidebar content"
-        "footer footer";
-    }
-  }
+.content {
+  flex-grow: 1;
+}
+  
+/* --------- Non-flexbox related styles --------- */
+.child {
+  border: 1px solid #f5cc8b;
+}

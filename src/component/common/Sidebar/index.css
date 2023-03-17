@@ -1,23 +1,16 @@
-/* Style the sidebar */
-.sidebar {
-    color: #fff;
-    width: 200px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  /* Style the sidebar links */
-  .sidebar ul {
+/* Style the sidebar links */
+  ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  .sidebar li {
-    color: #fff;
+  li {
+    color: var(--theme-font-color__primary);
     text-decoration: none;
     padding: 10px 0;
   }
+.sidebar {
+  background: var(--theme-background__white);
+}
   

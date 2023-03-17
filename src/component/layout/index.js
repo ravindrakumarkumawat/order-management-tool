@@ -8,10 +8,14 @@ const Layout = ({ children }) => {
     const {isSignedIn} = useContext(AuthContext)
     return (
         <>
-        {isSignedIn && <div className="l-wrapper">
-            <Header />
-            <article className="content">{children}</article>
-            <Sidebar />
+        {isSignedIn && <div className="parent">
+            <div className="main">
+                <Sidebar />
+                <article className="content child">
+                    <Header />
+                    {children}
+                </article>
+            </div>
             <Footer />
         </div>
         }
