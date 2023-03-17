@@ -1,7 +1,8 @@
 import React, { useEffect, createContext, useReducer, useMemo } from 'react'
 import { SIGN_IN_USER, SIGN_OUT_USER } from './authTypes'
 import { reducer } from './authReducer'
-
+import { useHistory } from 'react-router-dom';
+import mockData from '../../mock/mockData.json'
 const initialState = {
   isSignedIn: false,
   user: null
@@ -11,34 +12,30 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const authUser = useMemo(() => ({
-    uid: '6avert352b32b4n2',
-    photo: `https://google.com/`,
-    email: 'ravindra@gmail.com',
-    displayName: 'ravindra'
-  }), [])
-  useEffect (() => {
-    if (authUser) {
-    // User is logged in
-    dispatch(
+  const history = useHistory();
+  
+  const loginUser = ({ email, username, password }) => {
+    const user = mockData.users.find((user) => ((user.username=== username || user.email === email) && user.password === password));
+    if(user) {
+      dispatch(
         {
         type: SIGN_IN_USER, 
         payload: {
-            uid: authUser.uid,
-            photo: authUser.photoURL,
-            email: authUser.email,
-            displayName: authUser.displayName
+          email,
+          username,
+          password
         }
-    })
+      })
+      history.push('/orders');
     } else {
-    // User is logged out
-    dispatch({type: SIGN_OUT_USER})
+      // User is logged out
+      dispatch({type: SIGN_OUT_USER})
     }
-  }, [authUser])
-
+  }
   return <AuthContext.Provider 
             value={{
               isSignedIn: state.isSignedIn,
-              user: state.user
+              user: state.user,
+              login: loginUser,
             }}>{props.children}</AuthContext.Provider>
 }
