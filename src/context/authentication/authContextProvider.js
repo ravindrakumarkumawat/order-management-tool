@@ -1,7 +1,6 @@
-import React, { useEffect, createContext, useReducer } from 'react'
+import React, { useEffect, createContext, useReducer, useMemo } from 'react'
 import { SIGN_IN_USER, SIGN_OUT_USER } from './authTypes'
 import { reducer } from './authReducer'
-import {auth} from '../../firebase'
 
 const initialState = {
   isSignedIn: false,
@@ -12,7 +11,12 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const authUser = true
+  const authUser = useMemo(() => ({
+    uid: '6avert352b32b4n2',
+    photo: `https://google.com/`,
+    email: 'ravindra@gmail.com',
+    displayName: 'ravindra'
+  }), [])
   useEffect (() => {
     if (authUser) {
     // User is logged in
@@ -30,7 +34,7 @@ export const AuthContextProvider = (props) => {
     // User is logged out
     dispatch({type: SIGN_OUT_USER})
     }
-  }, [])
+  }, [authUser])
 
   return <AuthContext.Provider 
             value={{

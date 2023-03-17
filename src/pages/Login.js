@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isValidEmail, isValidPassword, isValidUserName } from '../utils/validations';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -34,6 +35,19 @@ const Login = () => {
       isValid = false;
     }
 
+    if(!isValidEmail(email) && !isValidUserName(email)) {
+      setEmailError('Please enter a valid email address or username.');
+      isValid = false
+    }
+
+    if(!isValidPassword) {
+      setPasswordError('Password must be at least 6 characters long.');
+      isValid = false
+    }
+    if(isValid) {
+      setEmailError('')
+      setPasswordError('')
+    }
     return isValid;
   };
 

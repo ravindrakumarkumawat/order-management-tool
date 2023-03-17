@@ -1,5 +1,6 @@
-import React, { Suspense, Lazy } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { AuthContextProvider } from './context/authentication/authContextProvider'
 const Login = lazy(() => import('./pages/Login'));
 const Orders = lazy(() => import( './pages/Orders'));
 const ProtectedRoute = lazy(() => import('./ProtectedRoute/ProtectedRoute'))
