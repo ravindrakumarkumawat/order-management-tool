@@ -2,6 +2,19 @@
   --theme-font-color__primary: #445965;
   --theme-background: #F5F5F5;
   --theme-background__white: #FFFFFF;
+  --theme-background__thead: #E7F6F6;
+
+  --theme-primary-font-size: 15px;
+  --theme-primary-line-height:22px;
+
+  --theme-secondary-font-size:13px;
+  --theme-secondary-line-height: 20px;
+
+  --theme-septenary-font-size: 11px;
+  --theme-senary-line-height: 18px;
+
+  --theme-primary-font-weight: 500;
+  --theme-secondary-font-weight: 400;
 }
 body {
   margin: 0;

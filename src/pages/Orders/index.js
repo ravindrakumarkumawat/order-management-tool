@@ -6,7 +6,7 @@ const Orders = () => {
     const [searchTerm, setSearchTerm] = useState('');
     // const [currentPage, setCurrentPage] = useState(1);
     const currentPage = 1
-    const ITEMS_PER_PAGE = 15;
+    const ITEMS_PER_PAGE = 10;
 
     const filteredData = data.filter((item) =>
         Object.values(item).some((value) => 
@@ -34,6 +34,7 @@ const Orders = () => {
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                 />
+                <div className="table-wrapper">
                 <table>
                     <thead>
                     <tr>
@@ -54,6 +55,7 @@ const Orders = () => {
                     ))}
                     </tbody>
                 </table>
+                </div>
                 {/* <Pagination
                     currentPage={currentPage}
                     pageCount={getPageCount()}
