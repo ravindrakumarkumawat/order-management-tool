@@ -3,7 +3,7 @@
     width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--theme-background__white);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
@@ -17,7 +17,8 @@ label {
   input[type="password"] {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    font-size: var(--theme-primary-font-size);
+    line-height: var(--theme-primary-line-height);
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -27,12 +28,14 @@ label {
   input[type="text"]:invalid,
   input[type="email"]:invalid,
   input[type="password"]:invalid {
-    border-color: #ff0000;
+    border-color: var(--theme-status-cancelled-font-color);
   }
   
   .error-message {
-    color: #ff0000;
-    font-size: 14px;
+    color: var(--theme-status-cancelled-font-color);
+    font-size: var(--theme-septenary-font-size);
+    font-weight: var(--theme-primary-font-weight);
+    line-height: var(--theme-senary-line-height);
   }
 
   button {
@@ -60,7 +63,4 @@ label {
     }
   }
 
-  .background {
-    background: linear-gradient( to right, #ffbe2e, #f5843a);
-  }
   

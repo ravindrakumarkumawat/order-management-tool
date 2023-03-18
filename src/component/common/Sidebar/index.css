@@ -1,15 +1,14 @@
 /* Style the sidebar links */
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
   
-  li {
-    color: var(--theme-font-color__primary);
-    text-decoration: none;
-    padding: 10px 0;
-  }
+li {
+  text-decoration: none;
+  padding: 10px 0;
+}
 .sidebar {
   background: var(--theme-background__white);
   width: 20%;
@@ -20,6 +19,15 @@
   display: inline-flex;
   padding-left: 16px;
 }
+.nav-link__active {
+  color: var(--theme-active__link);
+}
+li {
+  color: #859d9d;
+  font-size: var(--theme-secondary-font-size);
+  line-height: var(--theme-secondary-line-height);
+  font-weight: var(--theme-secondary-font-weight);
+}
 @media screen and (max-width: 360px) {
   .sidebar {
     width: 5%;
@@ -29,7 +37,6 @@
   .sidebar {
     width: 2.8%;
     padding-right: 16px;
-    /* border-right: 1px solid green; */
   }
   .sidebar__nav-item--name {
     display: none;

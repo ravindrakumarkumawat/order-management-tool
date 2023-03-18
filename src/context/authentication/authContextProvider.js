@@ -32,10 +32,14 @@ export const AuthContextProvider = (props) => {
       dispatch({type: SIGN_OUT_USER})
     }
   }
+  const logoutUser = () => {
+    dispatch({type: SIGN_OUT_USER})
+  }
   return <AuthContext.Provider 
             value={{
               isSignedIn: state.isSignedIn,
               user: state.user,
               login: loginUser,
+              logout: logoutUser,
             }}>{props.children}</AuthContext.Provider>
 }
