@@ -15,6 +15,18 @@
 
   --theme-primary-font-weight: 500;
   --theme-secondary-font-weight: 400;
+
+  --theme-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  --theme-status-shipped-font-color: #44CD79;
+  --theme-status-shipped-background-color: #F3FCF6;
+
+  --theme-status-pending-font-color: #FDD18E;
+  --theme-status-pending-background-color: #FFF4E6;
+
+  --theme-status-cancelled-font-color: #D1322D;
+  --theme-status-cancelled-background-color: #f8c3c1;
+
 }
 body {
   margin: 0;
@@ -31,31 +43,6 @@ code {
     monospace;
 }
 
-.k-flex {
-  display: flex;
-}
-
-.k-fdc {
-  flex-direction: column;
-}
-
-.k-fdr {
-  flex-direction: row;
-}
-
-.k-jcc {
-  justify-content: center;
-}
-
-.k-jcsb {
-  justify-content: space-between;
-}
-
-.k-aic {
-  align-items: center;
-}
-
-
 .h-100 {
   height: 100%;
 }
@@ -70,35 +57,4 @@ code {
 
 .w-100 {
   width: 100%;
-}
-
-.k-pl16 {
-  padding-left: 16px;
-}
-
-.k-pr16 {
-  padding-right: 16px;
-}
-
-.k-pt16 {
-  padding-top: 16px;
-}
-
-.k-pb16 {
-  padding-bottom: 16px;
-}
-.k-pl4 {
-  padding-left: 4px;
-}
-
-.k-pr4 {
-  padding-right: 4px;
-}
-
-.k-pt4 {
-  padding-top: 4px;
-}
-
-.k-pb4 {
-  padding-bottom: 4px;
 }

@@ -50,7 +50,7 @@ const Orders = () => {
                         <td>{item.orderId}</td>
                         <td>{item.vendorName}</td>
                         <td>{item.pickupDate}</td>
-                        <td>{item.status}</td>
+                        <td><span className={`order__status--${item.status.toLowerCase()} k-pt4 k-pb4 k-pr4 k-pl4`}>{item.status}</span></td>
                         </tr>
                     ))}
                     </tbody>
