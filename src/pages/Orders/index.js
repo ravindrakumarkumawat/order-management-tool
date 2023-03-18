@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import Pagination from '../../component/common/Pagination';
 import data from '../../mock/orderData.json';
 import './index.css';
 
 const Orders = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    // const [currentPage, setCurrentPage] = useState(1);
-    const currentPage = 1
+    const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 10;
 
     const filteredData = data.filter((item) =>
@@ -18,14 +18,14 @@ const Orders = () => {
         const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
         return filteredData.slice(indexOfFirstItem, indexOfLastItem);
     };
-    // const getPageCount = () => {
-    //     return Math.ceil(filteredData.length / ITEMS_PER_PAGE);
-    // };
-    // const handlePageChange = (pageNumber) => {
-    //     setCurrentPage(pageNumber);
-    // };
+    const getPageCount = () => {
+        return Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+    };
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
     return (
-        <div className="OrdersPage">
+        <div className="orders-page">
             <h1>Orders Page</h1>
             <div className="order-container">
                 <input
@@ -56,11 +56,11 @@ const Orders = () => {
                     </tbody>
                 </table>
                 </div>
-                {/* <Pagination
+                <Pagination
                     currentPage={currentPage}
                     pageCount={getPageCount()}
                     onPageChange={handlePageChange}
-                /> */}
+                />
             </div>
         </div>
     );

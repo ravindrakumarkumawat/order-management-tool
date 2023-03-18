@@ -4,6 +4,9 @@
   --theme-background__white: #FFFFFF;
   --theme-background__thead: #E7F6F6;
 
+  --theme-senary-font-size: 21px;
+  --theme-quinary-line-height: 30px;
+
   --theme-primary-font-size: 15px;
   --theme-primary-line-height:22px;
 
@@ -57,4 +60,8 @@ code {
 
 .w-100 {
   width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

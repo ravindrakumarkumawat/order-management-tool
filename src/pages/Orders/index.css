@@ -1,70 +1,14 @@
-.orders-page {
+  .orders-page {
     max-width: 800px;
     margin: 0 auto;
   }
   
   .orders-page h1 {
-    text-align: center;
-  }
-  
-  .search-container {
-    margin-bottom: 10px;
-  }
-  
-  #search-input {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  #orders-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  #orders-table th,
-  #orders-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  #orders-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .pagination {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .pagination li {
-    margin: 0 5px;
-  }
-  
-  .pagination li a {
-    display: block;
-    padding: 5px 10px;
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .pagination li.active a {
-    background-color: #4CAF50;
-    color: white;
+    font-size: var(--theme-senary-font-size);
+    line-height: var(--theme-quinary-line-height);
+    font-weight: var( --theme-primary-font-weight);
+
+    color: var(--theme-font-color__primary);
   }
   
   .order-container {
@@ -80,7 +24,7 @@
   .order__status--cancelled {
     font-size: var(--theme-septenary-font-size);
     line-height: var(--theme-senary-line-height);
-    font-weight: var( --theme-secondary-font-weight);
+    font-weight: var( --theme-primary-font-weight);
     border-radius: 8px;
   }
   .order__status--shipped {
