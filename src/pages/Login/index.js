@@ -19,9 +19,9 @@ const Login = () => {
     setPassword(e.target.value);
     setPasswordError('');
   };
-  useEffect(() => handleSubmit(), [])
+  
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // Perform login validation here
     if(!validate()) return
     login({
