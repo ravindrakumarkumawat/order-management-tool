@@ -1,52 +1,78 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import Button from '../../component/common/Button';
 import Pagination from '../../component/common/Pagination';
 import data from '../../mock/orderData.json';
 import './index.css';
 const ASC = 'asc'
 const DESC = 'desc'
+const randomOrderId = () => {
+    return (Math.floor(Math.random() * 1000) + 1) + ''  
+}
+const sortBy = (vendorData, key, sortOrder) => {
+    return vendorData.sort((a, b) => {
+        if(sortOrder[key] == ASC) {
+            return a[key].localeCompare(b[key])
+        } else if(sortOrder[key] == DESC) {
+            return b[key].localeCompare(a[key])
+        }
+    })
+}
 const Orders = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
-    const ITEMS_PER_PAGE = 10;
-
-    const [vendorData, setVendorData] = useState([...data]);
-    useEffect(() => {
-        setVendorData(data.filter((item) =>
-            Object.values(item).some((value) => 
-                value.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-        ))
-    }, [searchTerm])
-    
-    const getCurrentItems = () => {
-        const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
-        const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
-        
-        return vendorData.slice(indexOfFirstItem, indexOfLastItem);
-    };
-    const getPageCount = () => {
-        return Math.ceil(vendorData.length / ITEMS_PER_PAGE);
-    };
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
     const [sortOrder, setOrder] = useState({
         vendorName: ASC,
         pickupDate: ASC,
         status: ASC,
     })
-    useEffect(() => {
-        setVendorData([...sortBy('vendorName')])
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 10;
+
+    const [vendorData, setVendorData] = useState([...data]);
+
+    const tableData = useMemo(() => {
+        const filteredData = vendorData.filter((item) =>
+             Object.values(item).some((value) => {
+                return value.toLowerCase().includes(searchTerm.toLowerCase())
+             }
+             )
+        )
         
-    }, [sortOrder.vendorName])
-    useEffect(() => {
-        setVendorData([...sortBy('pickupDate')])
+        const sortData = [...sortBy(filteredData, 'vendorName', sortOrder)]
+        return sortData
+    }, [searchTerm, vendorData, sortOrder.vendorName, sortOrder.pickupDate, sortOrder.status])
+    // useEffect(() => {
+    //     setVendorData(data.filter((item) =>
+    //         Object.values(item).some((value) => 
+    //             value.toLowerCase().includes(searchTerm.toLowerCase())
+    //         )
+    //     ))
+    // }, [searchTerm])
+    
+    const getCurrentItems = () => {
+        const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+        const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
         
-    }, [sortOrder.pickupDate])
-    useEffect(() => {
-        setVendorData([...sortBy('status')])
+        return tableData.slice(indexOfFirstItem, indexOfLastItem);
+    };
+    const getPageCount = () => {
+        return Math.ceil(tableData.length / ITEMS_PER_PAGE);
+    };
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+    
+    // useEffect(() => {
+    //     setVendorData([...sortBy('vendorName')])
         
-    }, [sortOrder.status])
+    // }, [sortOrder.vendorName])
+    // useEffect(() => {
+    //     setVendorData([...sortBy('pickupDate')])
+        
+    // }, [sortOrder.pickupDate])
+    // useEffect(() => {
+    //     setVendorData([...sortBy('status')])
+        
+    // }, [sortOrder.status])
 
     const toggleSortedOrder = (type) => {
         setOrder({
@@ -55,19 +81,75 @@ const Orders = () => {
         })
     }
     
-    const sortBy = (key) => {
-        return vendorData.sort((a, b) => {
-            if(sortOrder[key] == ASC) {
-                return a[key].localeCompare(b[key])
-            } else if(sortOrder[key] == DESC) {
-                return b[key].localeCompare(a[key])
-            }
+   
+    const [isOpen, setIsOpen] = useState(false)
+    const handleModalToggle = () => {
+        setIsOpen(!isOpen)
+    }
+    const [orders, setOrders] = useState({
+        vendorName: '',
+        pickupDate: '',
+        status: ''
+    })
+    const handleOrders = (e) => {
+        setOrders({
+            ...orders,
+            [e.target.name]: e.target.value
         })
     }
+
+    
+    const handleCreate = () => {
+        setVendorData((prevState) => {
+             const key = 'vendorName'
+                const newOrder = [...prevState, {
+                    orderId: randomOrderId(),
+                    ...orders
+                }]
+                // .sort((a, b) => {
+                //     if(sortOrder[key] == ASC) {
+                //         return a[key].localeCompare(b[key])
+                //     } else if(sortOrder[key] == DESC) {
+                //         return b[key].localeCompare(a[key])
+                //     }
+                // })
+                return newOrder
+            }
+        )
+    }
+
     
     return (
         <div className="orders-page">
-            <h1>Orders Page</h1>
+            <div className="k-flex k-jcsb">
+                <h1>Orders Page</h1>
+                <Button className="add-order-btn" onClick={handleModalToggle}>+ Add Order</Button>
+            </div>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Vendor name"
+                    name="vendorName"
+                    value={orders.vendorName}
+                    onChange={handleOrders}
+                />
+                <input
+                    type="date"
+                    name="pickupDate"
+                    placeholder="Date"
+                    value={orders.pickupDate}
+                    onChange={handleOrders}
+                />
+                <input
+                    type="text"
+                    name="status"
+                    placeholder="Status"
+                    value={orders.status}
+                    onChange={handleOrders}
+                />
+                <Button className="add-order-btn" onClick={handleCreate}>Create</Button>
+                {JSON.stringify(orders)}
+            </div>
             <div className="order-container">
                 <input
                     type="text"

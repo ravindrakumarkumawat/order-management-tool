@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/authentication/authContextProvider';
 import { isValidEmail, isValidPassword, isValidUserName } from '../../utils/validations';
 import './index.css';
@@ -19,9 +19,9 @@ const Login = () => {
     setPassword(e.target.value);
     setPasswordError('');
   };
-  
+  useEffect(() => handleSubmit(), [])
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // Perform login validation here
     if(!validate()) return
     login({
